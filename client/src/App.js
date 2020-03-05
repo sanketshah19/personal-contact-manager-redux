@@ -10,6 +10,9 @@ import Login from './components/users/Login';
 import ContactsList from './components/contacts/List';
 import ContactNew from './components/contacts/New';
 import ContactEdit from './components/contacts/Edit';
+import ContactShow from './components/contacts/Show';
+
+import PrivateRoute from './components/privateRoute/PrivateRoute';
 
 import {startLogoutUser} from './actions/user';
 
@@ -50,9 +53,10 @@ function App(props) {
           <Route path="/users/register" component={Register} />
           <Route path="/users/login" component={Login} />
 
-          <Route path="/contacts" component={ContactsList} exact={true} />
-          <Route path="/contacts/new" component={ContactNew} />
+          <PrivateRoute path="/contacts" component={ContactsList} exact={true} />
+          <PrivateRoute path="/contacts/new" component={ContactNew} />
           <Route path="/contacts/edit/:id" component={ContactEdit} />
+          <Route path="/contacts/:id" component={ContactShow} /> 
         </Switch>
 
       </BrowserRouter>
