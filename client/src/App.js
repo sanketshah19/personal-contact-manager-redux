@@ -2,7 +2,10 @@ import React from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 
-import Home from './components/common/Home'
+import Home from './components/common/Home';
+import Register from './components/users/Register';
+
+import {connect} from 'react-redux';
 
 function App() {
   return (
@@ -35,7 +38,7 @@ function App() {
 
         <Switch>
           <Route path="/" component={Home} exact={true} />
-
+          <Route path="/users/register" component={Register} />
         </Switch>
 
       </BrowserRouter>
@@ -43,4 +46,10 @@ function App() {
   );
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(App)
