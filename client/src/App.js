@@ -38,7 +38,7 @@ function App() {
 
         <Switch>
           <Route path="/" component={Home} exact={true} />
-          <Route path="/users/register" component={Register} />
+        <Route path="/users/register" component={Register} />
         </Switch>
 
       </BrowserRouter>
