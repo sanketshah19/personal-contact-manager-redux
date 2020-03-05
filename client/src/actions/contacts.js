@@ -36,6 +36,13 @@ export const deleteContact = (id) =>{
     }
 }
 
+export const searchContact = (data) => {
+    return {
+        type:"SEARCH_CONTACT",
+        payload:data
+    }
+}
+
 export const startGetAllContacts = () => {
     return (dispatch) => {
         axios.get('/contacts', {
@@ -153,5 +160,21 @@ export const startDeleteContact = (id) => {
                 })
             }
           })
+    }
+}
+
+export const startSearchContact = (value) => {
+    return (dispatch) => {
+        axios.get('/contacts', {
+            headers: {
+                'x-auth': localStorage.getItem('authToken')
+            }
+        })
+            .then((response) => {
+                const data = response.data.filter((contact) => {
+                    return (contact.name.toLowerCase().slice(0, value.length) === value.toLowerCase() || contact.mobile.toString().slice(0, value.length) === value)
+                })
+                dispatch(searchContact(data))
+            })
     }
 }

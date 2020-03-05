@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Button, Card, CardColumns, Form} from 'react-bootstrap';
 
-import {startGetAllContacts, startDeleteContact} from '../../actions/contacts';
+import {startGetAllContacts, startDeleteContact, startSearchContact} from '../../actions/contacts';
 
 class ContactsList extends React.Component{
 
@@ -16,16 +16,8 @@ class ContactsList extends React.Component{
     }
 
     handleSearch = (e) => {
-        // const value = e.target.value
-        // if(value === ''){
-        //     const contacts = this.state.dupContacts
-        //     this.setState({contacts})
-        // }else{
-        //     const contacts = this.state.dupContacts.filter((contact) => {
-        //         return (contact.name.toLowerCase().slice(0, value.length) === value.toLowerCase() || contact.mobile.toString().slice(0, value.length) === value)
-        //     })
-        //     this.setState({contacts})
-        // }
+        const value = e.target.value
+        this.props.dispatch(startSearchContact(value))
     }
 
     render(){

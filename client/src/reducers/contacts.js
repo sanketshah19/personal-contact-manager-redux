@@ -14,6 +14,9 @@ const contactsReducer = (state = contactsInitialState, action) => {
         case 'REMOVE_CONTACT': {
             return [...state].filter(contact => contact._id !== action.payload)
         }
+        case 'SEARCH_CONTACT': {
+            return [...action.payload]
+        }
         default: {
             return [...state]
         }
