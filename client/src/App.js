@@ -9,6 +9,7 @@ import Login from './components/users/Login';
 
 import ContactsList from './components/contacts/List';
 import ContactNew from './components/contacts/New';
+import ContactEdit from './components/contacts/Edit';
 
 import {startLogoutUser} from './actions/user';
 
@@ -51,6 +52,7 @@ function App(props) {
 
           <Route path="/contacts" component={ContactsList} exact={true} />
           <Route path="/contacts/new" component={ContactNew} />
+          <Route path="/contacts/edit/:id" component={ContactEdit} />
         </Switch>
 
       </BrowserRouter>
