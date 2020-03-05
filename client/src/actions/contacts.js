@@ -29,6 +29,13 @@ export const editContact = (contact) => {
     }
 }
 
+export const deleteContact = (id) =>{
+    return {
+        type: 'REMOVE_CONTACT',
+        payload: id
+    }
+}
+
 export const startGetAllContacts = () => {
     return (dispatch) => {
         axios.get('/contacts', {
@@ -112,5 +119,39 @@ export const startEditContact = (formData, id, props) => {
                 .catch((err) => {
                     swal ("Oops", `${err}` ,"error")
                 })
+    }
+}
+
+export const startDeleteContact = (id) => {
+    return (dispatch) => {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this contact!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                axios.delete(`/contacts/${id}`, {
+                    headers: {
+                        'x-auth': localStorage.getItem('authToken')
+                    }
+                })
+                .then((response) => {
+                    if(response.data.hasOwnProperty('errors')){
+                        swal("Oops!", `${response.data.message}`, "error");
+                    }else{
+                        swal("Poof! Your contact has been deleted!", {
+                            icon: "success",
+                          })
+                        dispatch(deleteContact(id))
+                    }
+                })
+                .catch((err) => {
+                    swal ("Oops", `${err}` ,"error")
+                })
+            }
+          })
     }
 }

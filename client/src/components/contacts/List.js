@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Button, Card, CardColumns, Form} from 'react-bootstrap';
 
-import {startGetAllContacts} from '../../actions/contacts';
+import {startGetAllContacts, startDeleteContact} from '../../actions/contacts';
 
 class ContactsList extends React.Component{
 
@@ -12,36 +12,7 @@ class ContactsList extends React.Component{
     }
 
     handleRemove(id){
-        // swal({
-        //     title: "Are you sure?",
-        //     text: "Once deleted, you will not be able to recover this contact!",
-        //     icon: "warning",
-        //     buttons: true,
-        //     dangerMode: true,
-        //   })
-        //   .then((willDelete) => {
-        //     if (willDelete) {
-        //         axios.delete(`/contacts/${id}`, {
-        //             headers: {
-        //                 'x-auth': localStorage.getItem('authToken')
-        //             }
-        //         })
-        //         .then((response) => {
-        //             if(response.data.hasOwnProperty('errors')){
-        //                 swal("Oops!", `${response.data.message}`, "error");
-        //             }else{
-        //                 swal("Poof! Your contact has been deleted!", {
-        //                     icon: "success",
-        //                   })
-        //                 const contacts = this.state.contacts.filter(contact => contact._id !== id )
-        //                 this.setState({contacts})
-        //             }
-        //         })
-        //         .catch((err) => {
-        //             swal ("Oops", `${err}` ,"error")
-        //         })
-        //     }
-        //   });
+        this.props.dispatch(startDeleteContact(id))
     }
 
     handleSearch = (e) => {
