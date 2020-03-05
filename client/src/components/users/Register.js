@@ -1,12 +1,11 @@
 import React from 'react';
 import swal from 'sweetalert';
+import {connect} from 'react-redux';
 import {Form, Button} from 'react-bootstrap';
 
-import RegisterImg from '../../Images/Register.jpg';
-
-import {connect} from 'react-redux';
-
 import {startRegisterUser} from '../../actions/user';
+
+import RegisterImg from '../../Images/Register.jpg';
 
 class Register extends React.Component{
     constructor(props){

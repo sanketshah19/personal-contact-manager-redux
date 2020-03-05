@@ -4,6 +4,7 @@ import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 
 import Home from './components/common/Home';
 import Register from './components/users/Register';
+import Login from './components/users/Login';
 
 import {connect} from 'react-redux';
 
@@ -38,7 +39,8 @@ function App() {
 
         <Switch>
           <Route path="/" component={Home} exact={true} />
-        <Route path="/users/register" component={Register} />
+          <Route path="/users/register" component={Register} />
+          <Route path="/users/login" component={Login} />
         </Switch>
 
       </BrowserRouter>
