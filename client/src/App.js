@@ -1,6 +1,8 @@
 import React from 'react';
-import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import {Navbar, Nav} from 'react-bootstrap';
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
+
+import Home from './components/common/Home'
 
 function App() {
   return (
@@ -11,25 +13,31 @@ function App() {
         (
           <Navbar bg="dark" variant="dark" expand="lg">
               <Navbar.Brand href="/">Contact-Manager</Navbar.Brand>
-              <Nav className="ml-auto">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="#features">Contacts</Nav.Link>
-                <Nav.Link href="#pricing">Logout</Nav.Link>
-              </Nav>
+              <Nav.Item className="ml-auto">
+                <Link to="/" className="ml-2">Home</Link>
+                <Link to="/contacts" className="ml-2">Contacts</Link>
+                <Link to="#" className="ml-2">Logout</Link>
+              </Nav.Item>
           </Navbar>
         )
         :
         (
           <Navbar bg="dark" variant="dark" expand="lg">
               <Navbar.Brand href="/">Contact-Manager</Navbar.Brand>
-              <Nav className="ml-auto">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="#features">Register</Nav.Link>
-                <Nav.Link href="#pricing">Login</Nav.Link>
-              </Nav>
+              <Nav.Item className="ml-auto">
+                <Link to="/" className="ml-2">Home</Link>
+                <Link to="/users/register" className="ml-2">Register</Link>
+                <Link to="/users/login" className="ml-2">Login</Link>
+              </Nav.Item>
           </Navbar>
         )
       }
+
+        <Switch>
+          <Route path="/" component={Home} exact={true} />
+
+        </Switch>
+
       </BrowserRouter>
     </div>
   );
