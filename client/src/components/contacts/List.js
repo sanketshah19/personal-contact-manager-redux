@@ -1,13 +1,11 @@
 import React from 'react';
-import swal from 'sweetalert';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Button, Card, CardColumns, Form} from 'react-bootstrap';
 
-import {connect} from 'react-redux';
-
 import {startGetAllContacts} from '../../actions/contacts';
 
-class ContactList extends React.Component{
+class ContactsList extends React.Component{
 
     componentDidMount(){
         this.props.dispatch(startGetAllContacts())
@@ -104,4 +102,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ContactList)
+export default connect(mapStateToProps)(ContactsList)

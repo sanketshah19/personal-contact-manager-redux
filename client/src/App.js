@@ -7,7 +7,8 @@ import Home from './components/common/Home';
 import Register from './components/users/Register';
 import Login from './components/users/Login';
 
-import ContactList from './components/contacts/List';
+import ContactsList from './components/contacts/List';
+import ContactNew from './components/contacts/New';
 
 import {startLogoutUser} from './actions/user';
 
@@ -48,7 +49,8 @@ function App(props) {
           <Route path="/users/register" component={Register} />
           <Route path="/users/login" component={Login} />
 
-          <Route path="/contacts" component={ContactList} />
+          <Route path="/contacts" component={ContactsList} exact={true} />
+          <Route path="/contacts/new" component={ContactNew} />
         </Switch>
 
       </BrowserRouter>

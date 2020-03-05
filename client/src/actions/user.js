@@ -23,10 +23,10 @@ export const startRegisterUser = (formData, props) => {
                             swal ("Oops", `${Object.keys(response.data.keyValue)} already exists` ,"error")
                         }
                     }else if(response.data.hasOwnProperty('errors')){
-                        swal("Oops!", `${response.data.message}`, "error");
+                        swal("Oops!", `${response.data.message}`, "error")
                     }else{
                         props.history.push('/users/login')
-                        swal("Success!", "User Registered!", "success");
+                        swal("Success!", "User Registered!", "success")
                     }
                 })
                 .catch((err) => {

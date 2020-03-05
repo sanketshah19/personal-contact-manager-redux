@@ -5,6 +5,9 @@ const contactsReducer = (state = contactsInitialState, action) => {
         case 'GET_ALL_CONTACTS': {
             return [...action.payload]
         }
+        case 'ADD_CONTACT': {
+            return [...state, action.payload]
+        }
         default: {
             return [...state]
         }
