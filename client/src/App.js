@@ -12,7 +12,7 @@ function App() {
           <Navbar bg="dark" variant="dark" expand="lg">
               <Navbar.Brand href="/">Contact-Manager</Navbar.Brand>
               <Nav className="ml-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="#features">Contacts</Nav.Link>
                 <Nav.Link href="#pricing">Logout</Nav.Link>
               </Nav>
@@ -23,7 +23,7 @@ function App() {
           <Navbar bg="dark" variant="dark" expand="lg">
               <Navbar.Brand href="/">Contact-Manager</Navbar.Brand>
               <Nav className="ml-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="#features">Register</Nav.Link>
                 <Nav.Link href="#pricing">Login</Nav.Link>
               </Nav>
