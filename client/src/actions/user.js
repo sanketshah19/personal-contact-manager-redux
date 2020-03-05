@@ -2,9 +2,15 @@ import axios from '../config/axios';
 import swal from 'sweetalert';
 
 export const loginUser = (user) => {
-    return{
+    return {
         type: 'LOGIN_USER',
         payload: user
+    }
+}
+
+export const logoutUser = () => {
+    return {
+        type: 'LOGOUT_USER'
     }
 }
 
@@ -46,5 +52,35 @@ export const startLoginUser = (formData, props) => {
                 .catch((err) => {
                     swal ("Oops", `${err}` ,"error")  
                 })
+    }
+}
+
+export const startLogoutUser = () => {
+    return (dispatch) => {
+        swal({
+            title: "Are you sure?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              axios.delete('/users/logout', {
+                    headers: {
+                      'x-auth': localStorage.getItem('authToken')
+                    }
+                  })
+                  .then((response) => {
+                    swal("Successfully Logout!", {
+                      icon: "success",
+                    })  
+                    localStorage.removeItem('authToken')
+                    dispatch(logoutUser())
+                    setTimeout(() => {
+                      window.location.href = "/"
+                    }, 500);
+                  })
+            }
+          })
     }
 }
