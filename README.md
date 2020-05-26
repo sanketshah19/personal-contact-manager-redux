@@ -7,7 +7,7 @@
 
 `YouTube Link` https://youtu.be/6Y_R1q0P5JU
 
-Full-Stack handy phonebook like web app built with MERN stack.
+Full-Stack handy phonebook like web app built with MERN stack with private access to contact
 
 This project uses the following technologies:
 
