@@ -7,7 +7,7 @@
 
 `YouTube Link` https://youtu.be/6Y_R1q0P5JU
 
-Full-Stack handy phonebook like web app built with MERN stack with private access to contact
+Full-Stack handy phonebook like web app built with MERN stack with private access to contact. Allows user to search contacts by name as well as mobile number.
 
 This project uses the following technologies:
 
