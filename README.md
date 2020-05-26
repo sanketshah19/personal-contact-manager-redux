@@ -1,4 +1,4 @@
-# contact-manager-redux
+# Contact Manager
 
 <p align="center">
   <img src="Contact_Manager.gif" alt="Contact Manager">
@@ -16,6 +16,20 @@ This project uses the following technologies:
 - [MongoDB](https://www.mongodb.com/) for the database
 - [Redux](https://redux.js.org/introduction/getting-started) for global state management
 - [JWT](https://jwt.io/) and [bcryptjs](https://www.npmjs.com/package/bcryptjs) for user authentication
+
+## Quick Start
+
+```javascript
+// Install dependencies for server & client
+npm install && cd client && npm install
+
+// Run client & server with concurrently
+npm run app
+
+// Server runs on http://localhost:3003 and client on http://localhost:3000
+```
+
+
 
 ## Available Scripts
 
